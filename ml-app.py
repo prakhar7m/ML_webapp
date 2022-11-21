@@ -64,11 +64,7 @@ linechart=st.sidebar.checkbox("Linechart",False)
 #st.write(w1)
 
 
-@st.cache
-def read_data():
-    return pd.read_csv("../ML_Python_LinearR_Case_2_Advertising_Data.csv")[["TV","radio","newspaper","sales"]]
 
-df=read_data()
 
 #st.write(df)
 if w1:
