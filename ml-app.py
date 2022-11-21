@@ -55,10 +55,6 @@ st.sidebar.title("A")
 #st.subheader("Checkbox")
 w1 = st.sidebar.checkbox("show table", False)
 plot= st.sidebar.checkbox("show plots", False)
-plothist= st.sidebar.checkbox("show hist plots", False)
-trainmodel= st.sidebar.checkbox("Train model", False)
-dokfold= st.sidebar.checkbox("DO KFold", False)
-distView=st.sidebar.checkbox("Dist View", False)
 _3dplot=st.sidebar.checkbox("3D plots", False)
 linechart=st.sidebar.checkbox("Linechart",False)
 #st.write(w1)
@@ -72,15 +68,6 @@ if w1:
 if linechart:
 	st.subheader("Line chart")
 	st.line_chart(df)
-if plothist:
-    st.subheader("Distributions of each columns")
-    options = ("TV","radio","newspaper","sales")
-    sel_cols = st.selectbox("select columns", options,1)
-    st.write(sel_cols)
-    #f=plt.figure()
-    fig = go.Histogram(x=df[sel_cols],nbinsx=50)
-    st.plotly_chart([fig])
-    
 
 #    plt.hist(df[sel_cols])
 #    plt.xlabel(sel_cols)
@@ -103,20 +90,6 @@ if plot:
     st.plotly_chart(f)
 
 
-if distView:
-	st.subheader("Combined distribution viewer")
-	# Add histogram data
-
-	# Group data together
-	hist_data = [df["TV"].values,df["radio"].values,df["newspaper"].values]
-
-	group_labels = ["TV", "Radio", "newspaper"]
-
-	# Create distplot with custom bin_size
-	fig = ff.create_distplot(hist_data, group_labels, bin_size=[0.1, 0.25, 0.5])
-
-	# Plot!
-	st.plotly_chart(fig)
 
 if _3dplot:
 	options = st.multiselect(
