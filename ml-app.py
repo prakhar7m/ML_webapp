@@ -34,9 +34,10 @@ import plotly.express as px
 
 
 
-url='https://drive.google.com/file/d/1N9JfsG_NbCHb4IZxClRsTXchexe9SYiq/view?usp=share_link'
-url='https://drive.google.com/uc?id=' + url.split('/')[-2]
-df = pd.read_csv(url)
+url_data = (r'https://raw.githubusercontent.com/prakhar7m/ML_webapp/main/youtube_data.csv')
+
+df= pd.read_csv(url_data)
+
 
 
 # In[39]:
